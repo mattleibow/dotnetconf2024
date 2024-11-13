@@ -3,15 +3,19 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "deploy": "next build && touch out/.nojekyll && git add out/ && git commit -m \"Deploy\" && git subtree push --prefix out origin gh-pages"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "^18.11.5",
-    "@types/react-dom": "^18.0.7",
-    "@types/react": "^18.0.23",
     "next": "latest",
-    "react-dom": "^18.2.0",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.5",
+    "@types/react": "^18.0.23",
+    "@types/react-dom": "^18.0.7",
+    "eslint": "9.14.0",
+    "eslint-config-next": "15.0.3",
     "typescript": "^4.8.4"
   }
 }
