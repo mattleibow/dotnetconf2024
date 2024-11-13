@@ -11,7 +11,8 @@
 
 # next.js
 /.next/
-/out/
+# keep the compiled files to reduce the steps before running maui
+#/out/
 
 # production
 /build
