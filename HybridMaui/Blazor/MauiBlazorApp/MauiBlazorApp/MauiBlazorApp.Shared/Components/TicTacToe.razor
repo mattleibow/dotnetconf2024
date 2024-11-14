@@ -3,6 +3,9 @@
 
     <div class="game-board">
         <Board IsXNext="@IsXNext" Squares="@CurrentSquares" OnPlay="@HandlePlay" />
+        <div class="game-controls">
+            <button onclick="@(() => ResetGame())">Reset Board</button>
+        </div>
     </div>
 
     <div class="game-info">
@@ -43,6 +46,14 @@
     void JumpTo(int move)
     {
         currentMove = move;
+
+        StateHasChanged();
+    }
+
+    void ResetGame()
+    {
+        history = [new string[9]];
+        currentMove = 0;
 
         StateHasChanged();
     }
