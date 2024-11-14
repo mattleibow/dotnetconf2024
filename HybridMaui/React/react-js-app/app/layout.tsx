@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import navStyles from "./_styles";
 import NavMenu from "./_navmenu";
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: "React + Next.js",
@@ -23,6 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+
+        <Script src="/hybridwebview.js" strategy="beforeInteractive" />
+        <Script src="/mauiapp.js" strategy="beforeInteractive" />
 
         <div className="page">
           
