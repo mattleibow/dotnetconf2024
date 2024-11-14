@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
-import Board, { Squares } from './board';
+import React, { useState, useEffect } from 'react';
+import Board from './board';
 import styles from "./tictactoe.module.css";
-
-type History = Squares[];
+import GameStorage from './gamestorage';
+import { Squares, BoardHistory } from './types';
 
 const TicTacToe = (): React.JSX.Element => {
-    const [history, setHistory] = useState<History>([Array(9).fill(null)]);
-    const [currentMove, setCurrentMove] = useState<number>(0);
+    const initialHistory = GameStorage.current.getGameState() || [Array(9).fill(null)] as BoardHistory;
+    const initialMove = initialHistory.length - 1;
+
+    const [history, setHistory] = useState<BoardHistory>(initialHistory);
+    const [currentMove, setCurrentMove] = useState<number>(initialMove);
     const xIsNext = currentMove % 2 === 0;
     const currentSquares = history[currentMove];
+
+    useEffect(() => {
+        GameStorage.current.setGameState(history);
+    }, [history]);
 
     const handlePlay = (nextSquares: Squares): void => {
         const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];

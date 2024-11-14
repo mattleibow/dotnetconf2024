@@ -1,8 +1,7 @@
 import React from 'react';
-import Square, { SquareValue } from './square';
+import { Squares } from './types';
+import Square from './square';
 import styles from "./board.module.css";
-
-export type Squares = SquareValue[];
 
 export interface BoardProps {
     xIsNext: boolean;

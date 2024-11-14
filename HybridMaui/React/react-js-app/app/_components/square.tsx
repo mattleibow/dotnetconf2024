@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from "./square.module.css";
-
-export type SquareValue = string | null;
+import { SquareValue } from './types';
 
 export interface SquareProps {
     value: SquareValue;
