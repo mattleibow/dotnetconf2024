@@ -25,8 +25,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
 
-        <Script src="/hybridwebview.js" strategy="beforeInteractive" />
-        <Script src="/mauiapp.js" strategy="beforeInteractive" />
+        <Script src="/hybrid/hybridwebview.js" strategy="beforeInteractive" />
+        <Script src="/hybrid/mauiapp.js" strategy="beforeInteractive" />
 
         <div className="page">
           
