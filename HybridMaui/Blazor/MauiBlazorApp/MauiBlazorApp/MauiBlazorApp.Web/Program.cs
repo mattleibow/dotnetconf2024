@@ -1,3 +1,4 @@
+using Blazored.LocalStorage;
 using MauiBlazorApp.Shared.Services;
 using MauiBlazorApp.Web.Components;
 using MauiBlazorApp.Web.Services;
@@ -9,8 +10,11 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
+builder.Services.AddBlazoredLocalStorage();
+
 // Add device-specific services used by the MauiBlazorApp.Shared project
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
+builder.Services.AddScoped<IGameStorage, GameStorage>();
 
 var app = builder.Build();
 

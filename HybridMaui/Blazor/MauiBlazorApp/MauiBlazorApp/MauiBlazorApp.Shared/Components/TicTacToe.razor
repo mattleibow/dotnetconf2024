@@ -1,4 +1,5 @@
-﻿
+﻿@inject IGameStorage GameStorage
+
 <div class="game">
 
     <div class="game-board">
@@ -35,10 +36,29 @@
 
     string[] CurrentSquares => history[currentMove];
 
-    void HandlePlay(string[] nextSquares)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if (firstRender)
+        {
+            var oldGameState = await GameStorage.LoadGameState();
+            if (oldGameState is not null)
+            {
+                history = oldGameState.ToList();
+                currentMove = history.Count - 1;
+            }
+
+            StateHasChanged();
+        }
+    }
+
+    async void HandlePlay(string[] nextSquares)
     {
         history.Add(nextSquares);
         currentMove = history.Count - 1;
+
+        await GameStorage.StoreGameState(history.ToArray());
 
         StateHasChanged();
     }
@@ -50,10 +70,12 @@
         StateHasChanged();
     }
 
-    void ResetGame()
+    async void ResetGame()
     {
         history = [new string[9]];
         currentMove = 0;
+
+        await GameStorage.StoreGameState(history.ToArray());
 
         StateHasChanged();
     }
