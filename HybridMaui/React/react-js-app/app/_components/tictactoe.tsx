@@ -31,12 +31,19 @@ const TicTacToe = (): React.JSX.Element => {
 
     return (
         <div className={styles.game}>
+
             <div className={styles['game-board']}>
                 <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
             </div>
+
             <div className={styles['game-info']}>
+                <div className={styles['moves-title']}>
+                    <p>Past Moves:</p>
+                </div>
+
                 <ol>{moves}</ol>
             </div>
+
         </div>
     );
 }
