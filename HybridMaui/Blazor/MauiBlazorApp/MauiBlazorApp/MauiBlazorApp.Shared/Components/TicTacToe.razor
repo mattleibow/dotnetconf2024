@@ -1,0 +1,49 @@
+﻿
+<div class="game">
+
+    <div class="game-board">
+        <Board IsXNext="@IsXNext" Squares="@CurrentSquares" OnPlay="@HandlePlay" />
+    </div>
+
+    <div class="game-info">
+
+        <div class="moves-title">
+            <p>Past Moves:</p>
+        </div>
+
+        <ol>
+            @foreach (var (move, _) in history.Index())
+            {
+                <li key="@move">
+                    <button onclick="@(() => JumpTo(move))">
+                        @(move > 0 ? $"Go to move #{move}" : "Go to game start")
+                    </button>
+                </li>
+            }
+        </ol>
+    </div>
+</div>
+
+@code {
+    List<string[]> history = [new string[9]];
+    int currentMove = 0;
+
+    bool IsXNext => currentMove % 2 == 0;
+
+    string[] CurrentSquares => history[currentMove];
+
+    void HandlePlay(string[] nextSquares)
+    {
+        history.Add(nextSquares);
+        currentMove = history.Count - 1;
+
+        StateHasChanged();
+    }
+
+    void JumpTo(int move)
+    {
+        currentMove = move;
+
+        StateHasChanged();
+    }
+}

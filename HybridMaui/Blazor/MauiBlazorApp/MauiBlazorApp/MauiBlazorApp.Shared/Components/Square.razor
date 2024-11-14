@@ -1,0 +1,12 @@
+﻿
+<button class="square" onclick="@OnSquareClick">
+    @Value
+</button>
+
+@code {
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter]
+    public EventCallback OnSquareClick { get; set; }
+}
