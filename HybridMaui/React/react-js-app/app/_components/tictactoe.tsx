@@ -20,6 +20,11 @@ const TicTacToe = (): React.JSX.Element => {
         setCurrentMove(nextMove);
     }
 
+    const resetGame = (): void => {
+        setHistory([Array(9).fill(null)]);
+        setCurrentMove(0);
+    }
+
     const moves = history.map((squares, move) => {
         const description = move > 0 ? `Go to move #${move}` : 'Go to game start';
         return (
@@ -34,6 +39,9 @@ const TicTacToe = (): React.JSX.Element => {
 
             <div className={styles['game-board']}>
                 <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+                <div className={styles['game-controls']}>
+                    <button onClick={resetGame}>Reset Board</button>
+                </div>
             </div>
 
             <div className={styles['game-info']}>
