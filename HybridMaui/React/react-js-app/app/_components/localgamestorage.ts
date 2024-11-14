@@ -7,7 +7,7 @@ class LocalGameStorage implements GameStorageBackend {
     }
     
     public getGameState(): BoardHistory | null {
-        const storedHistory = localStorage.getItem('gameState');
+        const storedHistory = window.localStorage.getItem('gameState');
         if (storedHistory) {
             return JSON.parse(storedHistory);
         }
@@ -16,7 +16,7 @@ class LocalGameStorage implements GameStorageBackend {
 
     public setGameState(history: BoardHistory): void {
         const storedHistory = JSON.stringify(history);
-        localStorage.setItem('gameState', storedHistory);
+        window.localStorage.setItem('gameState', storedHistory);
     }
 }
 

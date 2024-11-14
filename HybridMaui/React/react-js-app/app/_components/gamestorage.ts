@@ -1,4 +1,3 @@
-import { BoardHistory } from './types';
 import GameStorageBackend from './gamestoragebackend';
 import LocalGameStorage from './localgamestorage';
 

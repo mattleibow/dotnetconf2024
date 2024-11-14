@@ -1,7 +1,12 @@
 "use client";
 
-import TicTacToe from "../_components/tictactoe";
 import GameStorage from "../_components/gamestorage";
+import dynamic from 'next/dynamic'
+
+const TicTacToe = dynamic(
+  () => import('../_components/tictactoe'),
+  { ssr: false }
+)
 
 const Game = () => {
   return (
