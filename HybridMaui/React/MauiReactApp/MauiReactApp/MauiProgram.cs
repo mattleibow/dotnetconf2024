@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiReactApp.Services;
+using Microsoft.Extensions.Logging;
 
 namespace MauiReactApp
 {
@@ -15,8 +16,20 @@ namespace MauiReactApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            // maui services
+            builder.Services.AddSingleton<ISecureStorage>(SecureStorage.Default);
+
+            // services
+            builder.Services.AddSingleton<IGameStorage, GameStorage>();
+            builder.Services.AddSingleton<HybridWebViewInvokeTarget>();
+
+            // pages
+            builder.Services.AddTransient<MainWindow>();
+            builder.Services.AddTransient<MainPage>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Services.AddHybridWebViewDeveloperTools();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
