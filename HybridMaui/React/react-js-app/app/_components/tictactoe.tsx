@@ -12,6 +12,36 @@ const TicTacToe = (): React.JSX.Element => {
     const [history, setHistory] = useState<BoardHistory | null>(null);
     const [currentMove, setCurrentMove] = useState<number>(0);
 
+    const resetListener = () => {
+        console.log("Game was reset.");
+        loadGameState();
+    };
+
+    // subscribe to reset events
+    useEffect(() => {
+        GameStorage.addResetListener(resetListener);
+        console.log('Subscribed to the global reset event.');
+
+        return () => {
+            GameStorage.removeResetListener(resetListener);
+            console.log('Unsubscribed from the global reset event.');
+        };
+    }, [router]);
+
+    // load the last game state from storage
+    useEffect(() => {
+        loadGameState();
+    }, []);
+
+    // save game state to storage when it changes
+    useEffect(() => {
+        // null history means the game is still loading
+        if (history === null)
+            return;
+
+        storage.setGameState(history);
+    }, [storage, history]);
+
     const loadGameState = () => {
         storage.getGameState()
             .then((gameState) => {
@@ -72,36 +102,6 @@ const TicTacToe = (): React.JSX.Element => {
                 </li>
             );
         });
-
-    // subscribe to reset events
-    useEffect(() => {
-        const resetListener = () => {
-            console.log("Game was reset.");
-            loadGameState();
-        };
-    
-        GameStorage.addResetListener(resetListener);
-        console.log('Subscribed to the global reset event.');
-
-        return () => {
-            GameStorage.removeResetListener(resetListener);
-            console.log('Unsubscribed from the global reset event.');
-        };
-    }, [router, loadGameState]);
-
-    // load the last game state from storage
-    useEffect(() => {
-        loadGameState();
-    }, [loadGameState]);
-
-    // save game state to storage when it changes
-    useEffect(() => {
-        // null history means the game is still loading
-        if (history === null)
-            return;
-
-        storage.setGameState(history);
-    }, [storage, history]);
 
     return (
         <div className={styles.game}>
