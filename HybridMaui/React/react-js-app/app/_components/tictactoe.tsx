@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Board from './board';
 import styles from "./tictactoe.module.css";
 import GameStorage from './gamestorage';
@@ -6,26 +7,10 @@ import { Squares, BoardHistory } from './types';
 
 const TicTacToe = (): React.JSX.Element => {
     const storage = GameStorage.getCurrent();
+    const router = useRouter();
 
     const [history, setHistory] = useState<BoardHistory | null>(null);
     const [currentMove, setCurrentMove] = useState<number>(0);
-
-    GameStorage.addResetListener(() => {
-        loadGameState();
-    })
-
-    // load the last game state from storage
-    useEffect(() => {
-        loadGameState();
-    }, []);
-
-    // save game state to storage
-    useEffect(() => {
-        if (history === null)
-            return;
-
-        storage.setGameState(history);
-    }, [storage, history]);
 
     const loadGameState = () => {
         storage.getGameState()
@@ -87,6 +72,36 @@ const TicTacToe = (): React.JSX.Element => {
                 </li>
             );
         });
+
+    // subscribe to reset events
+    useEffect(() => {
+        const resetListener = () => {
+            console.log("Game was reset.");
+            loadGameState();
+        };
+    
+        GameStorage.addResetListener(resetListener);
+        console.log('Subscribed to the global reset event.');
+
+        return () => {
+            GameStorage.removeResetListener(resetListener);
+            console.log('Unsubscribed from the global reset event.');
+        };
+    }, [router, loadGameState]);
+
+    // load the last game state from storage
+    useEffect(() => {
+        loadGameState();
+    }, [loadGameState]);
+
+    // save game state to storage when it changes
+    useEffect(() => {
+        // null history means the game is still loading
+        if (history === null)
+            return;
+
+        storage.setGameState(history);
+    }, [storage, history]);
 
     return (
         <div className={styles.game}>
