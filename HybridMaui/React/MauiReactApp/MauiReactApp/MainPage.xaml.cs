@@ -16,16 +16,10 @@ public partial class MainPage : ContentPage
 
     public async void ResetGame()
     {
-        await hybridWebView.InvokeJavaScriptAsync<bool>(
+        await hybridWebView.InvokeJavaScriptAsync(
             "GameStorage.reset",
             GameStorageContext.Default.Boolean);
     }
-
-    //public class ComputationResult
-    //{
-    //    public double result { get; set; }
-    //    public string? operationName { get; set; }
-    //}
 
     [JsonSourceGenerationOptions(WriteIndented = true)]
     [JsonSerializable(typeof(bool))]

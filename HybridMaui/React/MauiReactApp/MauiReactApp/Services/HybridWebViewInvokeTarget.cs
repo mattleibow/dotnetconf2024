@@ -2,7 +2,7 @@
 
 public class HybridWebViewInvokeTarget(IGameStorage gameStorage)
 {
-    public void StoreGameState(string[][] gameState) =>
+    public void StoreGameState(string[][]? gameState) =>
         gameStorage.StoreGameState(gameState);
 
     public string[][]? LoadGameState() =>

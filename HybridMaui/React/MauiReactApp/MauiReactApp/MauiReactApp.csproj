@@ -59,7 +59,7 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 		
 		<!-- HybridWebView Assets -->
-		<MauiAsset Include="wwwroot\**" />
+		<MauiAsset Include="wwwroot\**\*.js" />
 		<MauiAsset Include="..\..\react-js-app\out\**" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
 		<ConfigFiles Include="tsconfig.json" />
 	</ItemGroup>
@@ -71,12 +71,6 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="MainWindow.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
