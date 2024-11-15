@@ -14,7 +14,7 @@ const Game = () => {
       <h1>Tic Tac Toe</h1>
 
       <p>
-        <em>Current game storage backend: <b>{GameStorage.current.getName()}</b></em>
+        <em>Current game storage backend: <b>{GameStorage.getCurrent().getName()}</b></em>
       </p>
 
       <TicTacToe />

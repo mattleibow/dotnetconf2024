@@ -6,17 +6,18 @@ class LocalGameStorage implements GameStorageBackend {
         return 'LocalGameStorage';
     }
     
-    public getGameState(): BoardHistory | null {
+    public getGameState(): Promise<BoardHistory | null> {
         const storedHistory = window.localStorage.getItem('gameState');
         if (storedHistory) {
-            return JSON.parse(storedHistory);
+            return Promise.resolve(JSON.parse(storedHistory));
         }
-        return null;
+        return Promise.resolve(null);
     }
 
-    public setGameState(history: BoardHistory): void {
+    public setGameState(history: BoardHistory | null): Promise<void> {
         const storedHistory = JSON.stringify(history);
         window.localStorage.setItem('gameState', storedHistory);
+        return Promise.resolve();
     }
 }
 
