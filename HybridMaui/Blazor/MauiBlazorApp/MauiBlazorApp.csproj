@@ -22,7 +22,7 @@
     <Nullable>enable</Nullable>
 
     <!-- Display name -->
-    <ApplicationTitle>.NET Conf 2024</ApplicationTitle>
+    <ApplicationTitle>MAUI Blazor</ApplicationTitle>
 
     <!-- App Identifier -->
     <ApplicationId>com.companyname.mauiblazorapp</ApplicationId>
@@ -68,6 +68,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MauiBlazorApp.Shared\MauiBlazorApp.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Update="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
   </ItemGroup>
 
 </Project>

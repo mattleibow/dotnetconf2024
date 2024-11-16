@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>MauiReactApp</ApplicationTitle>
+		<ApplicationTitle>MAUI React</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.mauireactapp</ApplicationId>
@@ -60,7 +60,7 @@
 		
 		<!-- HybridWebView Assets -->
 		<MauiAsset Include="wwwroot\**\*.js" />
-		<MauiAsset Include="..\..\react-js-app\out\**" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
+		<MauiAsset Include="..\react-js-app\out\**" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
 		<ConfigFiles Include="tsconfig.json" />
 	</ItemGroup>
 

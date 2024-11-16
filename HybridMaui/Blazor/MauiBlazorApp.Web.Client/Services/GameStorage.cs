@@ -8,6 +8,15 @@ public class GameStorage(ILocalStorageService browserStorage) : IGameStorage
     public async Task<string[][]?> LoadGameState() =>
         await browserStorage.GetItemAsync<string[][]>("gameState");
 
-    public async Task StoreGameState(string[][] gameState) => 
-        await browserStorage.SetItemAsync("gameState", gameState);
+    public async Task StoreGameState(string[][]? gameState)
+    {
+        if (gameState is null)
+        {
+            await browserStorage.RemoveItemAsync("gameState");
+        }
+        else
+        {
+            await browserStorage.SetItemAsync("gameState", gameState);
+        }
+    }
 }

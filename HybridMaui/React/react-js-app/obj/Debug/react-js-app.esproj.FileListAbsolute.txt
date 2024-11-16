@@ -1,0 +1,1 @@
+D:\GitHub\dotnetconf2024\HybridMaui\React\react-js-app\obj\Debug\react-js-app.esproj.CoreCompileInputs.cache

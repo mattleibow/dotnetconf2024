@@ -2,7 +2,7 @@
 
 public interface IGameStorage
 {
-    Task StoreGameState(string[][] gameState);
+    Task StoreGameState(string[][]? gameState);
     
     Task<string[][]?> LoadGameState();
 }

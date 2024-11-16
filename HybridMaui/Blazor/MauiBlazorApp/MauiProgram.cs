@@ -16,10 +16,18 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             });
 
-        // Add device-specific services used by the MauiBlazorApp.Shared project
+        builder.Services.AddMauiBlazorWebView();
+
+        // maui services
+        builder.Services.AddSingleton<ISecureStorage>(SecureStorage.Default);
+
+        // services
+        builder.Services.AddSingleton<IGameStorage, GameStorage>();
         builder.Services.AddSingleton<IFormFactor, FormFactor>();
 
-        builder.Services.AddMauiBlazorWebView();
+        // pages
+        builder.Services.AddTransient<MainWindow>();
+        builder.Services.AddTransient<MainPage>();
 
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();

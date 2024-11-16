@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiReactApp", "MauiReactApp\MauiReactApp.csproj", "{46F511E5-3A6E-4E8C-9ED1-B9A14DE179AF}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "react-js-app", "react-js-app\react-js-app.esproj", "{F0BB57B4-1D96-403B-8BDC-3A3CF3C341A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{46F511E5-3A6E-4E8C-9ED1-B9A14DE179AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46F511E5-3A6E-4E8C-9ED1-B9A14DE179AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46F511E5-3A6E-4E8C-9ED1-B9A14DE179AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0BB57B4-1D96-403B-8BDC-3A3CF3C341A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0BB57B4-1D96-403B-8BDC-3A3CF3C341A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0BB57B4-1D96-403B-8BDC-3A3CF3C341A7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F0BB57B4-1D96-403B-8BDC-3A3CF3C341A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0BB57B4-1D96-403B-8BDC-3A3CF3C341A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0BB57B4-1D96-403B-8BDC-3A3CF3C341A7}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
