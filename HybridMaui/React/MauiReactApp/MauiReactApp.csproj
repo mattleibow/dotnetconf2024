@@ -57,10 +57,18 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-		
+	</ItemGroup>
+
+	<!-- Properties and items for the hybrid app -->
+	<PropertyGroup>
+		<!-- Don't compile TypeScript on save, just when building -->
+		<TypeScriptCompileOnSaveEnabled>false</TypeScriptCompileOnSaveEnabled>
+	</PropertyGroup>
+	<ItemGroup>
 		<!-- HybridWebView Assets -->
 		<MauiAsset Include="wwwroot\**\*.js" />
 		<MauiAsset Include="..\react-js-app\out\**" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
+		<!-- the config file for the TypeScript compiler -->
 		<ConfigFiles Include="tsconfig.json" />
 	</ItemGroup>
 
@@ -68,8 +76,8 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.5.3">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
 

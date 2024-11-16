@@ -4,6 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MauiReactApp.MainPage">
 
-    <HybridWebView x:Name="hybridWebView" />
+    <!-- the HybridRoot and DefaultFile properties are optional -->
+    <HybridWebView
+        x:Name="hybridWebView"
+        HybridRoot="wwwroot"
+        DefaultFile="index.html" />
 
 </ContentPage>
