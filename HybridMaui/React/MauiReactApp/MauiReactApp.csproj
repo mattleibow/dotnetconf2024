@@ -59,15 +59,18 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-	<!-- Properties and items for the hybrid app -->
-	<PropertyGroup>
-		<TypeScriptTarget>es2015</TypeScriptTarget>
-	</PropertyGroup>
 	<ItemGroup>
 		<!-- HybridWebView Assets -->
 		<MauiAsset Include="wwwroot\**\*.js" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
 		<MauiAsset Include="wwwroot\**\*.map" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
 		<MauiAsset Include="..\react-js-app\out\**" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<!-- Properties and items for the TypeScript compiler -->
+	<PropertyGroup>
+		<TypeScriptTarget>es2015</TypeScriptTarget>
+	</PropertyGroup>
+	<ItemGroup>
 		<TypeScriptCompile Remove="bin\**;obj\**" />
 	</ItemGroup>
 
