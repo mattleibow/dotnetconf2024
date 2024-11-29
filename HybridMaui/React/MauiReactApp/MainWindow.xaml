@@ -12,13 +12,20 @@
             BackgroundColor="#220529"
             ForegroundColor="White"                  
             HeightRequest="64">
+            <TitleBar.LeadingContent>
+                <Image
+                    Source="dotnet_bot.png"
+                    VerticalOptions="Center"
+                    Margin="12" />
+            </TitleBar.LeadingContent>
             <TitleBar.Content>
                 <SearchBar
                     Placeholder="Search"
                     PlaceholderColor="White"
                     MaximumWidthRequest="300"
                     HorizontalOptions="Fill"
-                    VerticalOptions="Center" />
+                    VerticalOptions="Center"
+                    MinimumHeightRequest="0" />
             </TitleBar.Content>
             <TitleBar.TrailingContent>
                 <Button

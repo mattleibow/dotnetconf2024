@@ -66,6 +66,10 @@
 		<MauiAsset Include="..\react-js-app\out\**" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<!--<ProjectReference Include="..\react-js-app\react-js-app.esproj" />-->
+	</ItemGroup>
+
 	<!-- Properties and items for the TypeScript compiler -->
 	<PropertyGroup>
 		<TypeScriptTarget>es2015</TypeScriptTarget>
@@ -81,10 +85,6 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\react-js-app\react-js-app.esproj" />
 	</ItemGroup>
 
 </Project>
