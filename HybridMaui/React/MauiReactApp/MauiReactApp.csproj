@@ -61,15 +61,13 @@
 
 	<!-- Properties and items for the hybrid app -->
 	<PropertyGroup>
-		<!-- Don't compile TypeScript on save, just when building -->
-		<TypeScriptCompileOnSaveEnabled>false</TypeScriptCompileOnSaveEnabled>
+		<TypeScriptTarget>es2015</TypeScriptTarget>
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- HybridWebView Assets -->
-		<MauiAsset Include="wwwroot\**\*.js" />
+		<MauiAsset Include="wwwroot\**\*.js" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
 		<MauiAsset Include="..\react-js-app\out\**" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
-		<!-- the config file for the TypeScript compiler -->
-		<ConfigFiles Include="tsconfig.json" />
+		<TypeScriptCompile Remove="bin\**;obj\**" />
 	</ItemGroup>
 
 	<ItemGroup>
