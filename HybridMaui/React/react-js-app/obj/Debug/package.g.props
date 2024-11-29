@@ -3,15 +3,19 @@
   <PropertyGroup>
     <PackageJsonPrivate Condition="$(PackageJsonPrivate) == ''">true</PackageJsonPrivate>
     <PackageJsonScriptsDev Condition="$(PackageJsonScriptsDev) == ''">next dev</PackageJsonScriptsDev>
+    <PackageJsonScriptsDevHybrid Condition="$(PackageJsonScriptsDevHybrid) == ''">cross-env APP_MODE=hybrid next dev</PackageJsonScriptsDevHybrid>
     <PackageJsonScriptsBuild Condition="$(PackageJsonScriptsBuild) == ''">next build</PackageJsonScriptsBuild>
+    <PackageJsonScriptsBuildHybrid Condition="$(PackageJsonScriptsBuildHybrid) == ''">cross-env APP_MODE=hybrid next build</PackageJsonScriptsBuildHybrid>
     <PackageJsonScriptsLint Condition="$(PackageJsonScriptsLint) == ''">next lint</PackageJsonScriptsLint>
     <PackageJsonDependenciesBootstrap Condition="$(PackageJsonDependenciesBootstrap) == ''">^5.1.0</PackageJsonDependenciesBootstrap>
+    <PackageJsonDependenciesDotenv Condition="$(PackageJsonDependenciesDotenv) == ''">^16.4.5</PackageJsonDependenciesDotenv>
     <PackageJsonDependenciesNext Condition="$(PackageJsonDependenciesNext) == ''">latest</PackageJsonDependenciesNext>
     <PackageJsonDependenciesReact Condition="$(PackageJsonDependenciesReact) == ''">^18.2.0</PackageJsonDependenciesReact>
     <PackageJsonDependenciesReactDom Condition="$(PackageJsonDependenciesReactDom) == ''">^18.2.0</PackageJsonDependenciesReactDom>
     <PackageJsonDevdependenciesTypesNode Condition="$(PackageJsonDevdependenciesTypesNode) == ''">^18.11.5</PackageJsonDevdependenciesTypesNode>
     <PackageJsonDevdependenciesTypesReact Condition="$(PackageJsonDevdependenciesTypesReact) == ''">^18.0.23</PackageJsonDevdependenciesTypesReact>
     <PackageJsonDevdependenciesTypesReactDom Condition="$(PackageJsonDevdependenciesTypesReactDom) == ''">^18.0.7</PackageJsonDevdependenciesTypesReactDom>
+    <PackageJsonDevdependenciesCrossEnv Condition="$(PackageJsonDevdependenciesCrossEnv) == ''">^7.0.3</PackageJsonDevdependenciesCrossEnv>
     <PackageJsonDevdependenciesEslint Condition="$(PackageJsonDevdependenciesEslint) == ''">9.14.0</PackageJsonDevdependenciesEslint>
     <PackageJsonDevdependenciesEslintConfigNext Condition="$(PackageJsonDevdependenciesEslintConfigNext) == ''">15.0.3</PackageJsonDevdependenciesEslintConfigNext>
     <PackageJsonDevdependenciesTypescript Condition="$(PackageJsonDevdependenciesTypescript) == ''">^4.8.4</PackageJsonDevdependenciesTypescript>

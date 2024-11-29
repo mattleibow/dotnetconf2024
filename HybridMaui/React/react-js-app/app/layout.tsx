@@ -25,8 +25,13 @@ export default function RootLayout({
     <html lang="en">
       <body>
 
-        <Script src="/hybrid/hybridwebview.js" strategy="beforeInteractive" />
-        <Script src="/hybrid/mauiapp.js" strategy="beforeInteractive" />
+        {process.env.ADDITIONAL_SCRIPTS && (
+          <>
+            {process.env.ADDITIONAL_SCRIPTS.split(',').map((src, i) =>
+              <Script src={src} strategy="beforeInteractive" key={i} />
+            )}
+          </>
+        )}
 
         <div className="page">
           

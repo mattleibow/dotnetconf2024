@@ -12,7 +12,7 @@ const Home = () => {
       </p>
 
       <em>
-        Welcome to your new app running on <b>Web</b> using <b>Your Browser</b>.
+        Welcome to your new app running on <b>{process.env.BUILD_TYPE}</b> using <b>Your Browser</b>.
       </em>
 
     </>

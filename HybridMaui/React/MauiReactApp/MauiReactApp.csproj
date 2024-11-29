@@ -79,4 +79,8 @@
 		</PackageReference>
 	</ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\react-js-app\react-js-app.esproj" />
+	</ItemGroup>
+
 </Project>
