@@ -66,6 +66,7 @@
 	<ItemGroup>
 		<!-- HybridWebView Assets -->
 		<MauiAsset Include="wwwroot\**\*.js" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
+		<MauiAsset Include="wwwroot\**\*.map" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
 		<MauiAsset Include="..\react-js-app\out\**" Link="wwwroot\%(RecursiveDir)%(Filename)%(Extension)" />
 		<TypeScriptCompile Remove="bin\**;obj\**" />
 	</ItemGroup>
