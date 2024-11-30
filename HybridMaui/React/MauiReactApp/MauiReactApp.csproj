@@ -67,6 +67,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<!--<ProjectReference Include="..\react-js-app\react-js-app.esproj" />-->
 	</ItemGroup>
 
@@ -77,10 +82,7 @@
 	<ItemGroup>
 		<TypeScriptCompile Remove="bin\**;obj\**" />
 	</ItemGroup>
-
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.5.3">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
